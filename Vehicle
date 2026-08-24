@@ -1,0 +1,38 @@
+public class Vehicle {
+    // Information hiding: Private fields
+    private String vehicleId;
+    private String makeModel;
+    private double dailyRate;
+
+    // Constructor
+    public Vehicle(String vehicleId, String makeModel, double dailyRate) {
+        this.vehicleId = vehicleId;
+        this.makeModel = makeModel;
+        this.dailyRate = dailyRate;
+    }
+
+    // Getters and Setters (Encapsulation)
+    public String getVehicleId() {
+        return vehicleId;
+    }
+
+    public void setVehicleId(String vehicleId) {
+        this.vehicleId = vehicleId;
+    }
+
+    public String getMakeModel() {
+        return makeModel;
+    }
+
+    public void setMakeModel(String makeModel) {
+        this.makeModel = makeModel;
+    }
+
+    public double getDailyRate() {
+        return dailyRate;
+    }
+
+    public void setDailyRate(double dailyRate) {
+        this.dailyRate = dailyRate;
+    }
+}
