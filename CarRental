@@ -1,0 +1,29 @@
+// Inheritance: CarRental inherits from Vehicle
+public class CarRental extends Vehicle {
+    private int rentalDays;
+    private boolean includesInsurance;
+
+    // Constructor passing parameters to superclass constructor
+    public CarRental(String vehicleId, String makeModel, double dailyRate, int rentalDays, boolean includesInsurance) {
+        super(vehicleId, makeModel, dailyRate);
+        this.rentalDays = rentalDays;
+        this.includesInsurance = includesInsurance;
+    }
+
+    // Method to calculate total cost
+    public double calculateTotalCost() {
+        double baseCost = getDailyRate() * rentalDays;
+        if (includesInsurance) {
+            baseCost += (150.0 * rentalDays); // Additional flat insurance rate per day
+        }
+        return baseCost;
+    }
+
+    public int getRentalDays() {
+        return rentalDays;
+    }
+
+    public boolean isIncludesInsurance() {
+        return includesInsurance;
+    }
+}
