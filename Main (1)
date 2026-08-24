@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        RentalManager manager = new RentalManager(5);
+
+        System.out.println("CAR RENTAL MANAGEMENT SYSTEM");
+        System.out.println("********************************");
+
+        boolean adding = true;
+        while (adding && manager.getCount() < 5) {
+            System.out.print("Enter Vehicle ID: ");
+            String id = scanner.nextLine();
+
+            System.out.print("Enter Make & Model: ");
+            String model = scanner.nextLine();
+
+            System.out.print("Enter Daily Rate (R): ");
+            double rate = Double.parseDouble(scanner.nextLine());
+
+            System.out.print("Enter Rental Days: ");
+            int days = Integer.parseInt(scanner.nextLine());
+
+            System.out.print("Include Insurance? (true/false): ");
+            boolean insurance = Boolean.parseBoolean(scanner.nextLine());
+
+            CarRental rental = new CarRental(id, model, rate, days, insurance);
+            manager.addRental(rental);
+
+            System.out.print("Do you want to add another rental? (y/n): ");
+            String response = scanner.nextLine();
+            if (!response.equalsIgnoreCase("y")) {
+                adding = false;
+            }
+        }
+
+        // Print final console report
+        manager.printConsoleReport();
+        scanner.close();
+    }
+}
