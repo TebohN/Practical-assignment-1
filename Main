@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Series app = new Series();
+
+        System.out.println("LATEST SERIES - 2025");
+        System.out.println("************************************");
+        System.out.print("Enter (1) to launch menu or any other key to exit: ");
+        String startInput = scanner.nextLine();
+
+        if (!startInput.equals("1")) {
+            System.exit(0);
+        }
+
+        while (true) {
+            System.out.println("\nPlease select one of the following menu items:");
+            System.out.println("(1) Capture a new series.");
+            System.out.println("(2) Search for a series.");
+            System.out.println("(3) Update series age restriction");
+            System.out.println("(4) Delete a series.");
+            System.out.println("(5) Print series report - 2025");
+            System.out.println("(6) Exit Application.");
+
+            System.out.print("Selection: ");
+            String option = scanner.nextLine();
+
+            switch (option) {
+                case "1":
+                    app.CaptureSeries();
+                    break;
+                case "2":
+                    app.SearchSeries();
+                    break;
+                case "3":
+                    app.UpdateSeries();
+                    break;
+                case "4":
+                    app.DeleteSeries();
+                    break;
+                case "5":
+                    app.SeriesReport();
+                    break;
+                case "6":
+                    app.ExitSeriesApplication();
+                    break;
+                default:
+                    System.out.println("Invalid selection. Try again.");
+            }
+        }
+    }
+}
